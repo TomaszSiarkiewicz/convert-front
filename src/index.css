@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.main-container{
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+.device-listed{
+  display: flex;
+  flex-direction: row;
+}
+.device-listed-element{
+  padding: 10px;
+}
+.newDevices-container{
+  padding: 20px;
+}
+.search{
+  padding: 10px;
+}
+button{
+  padding: 10px;
+}

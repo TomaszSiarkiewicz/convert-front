@@ -4,6 +4,8 @@ import axios from "axios";
 import fileDownload from 'js-file-download'
 
 export const NewDevice = () => {
+
+
     const [device, setDevice] = useState({
         "name": null,
         "date": null,
@@ -29,8 +31,8 @@ export const NewDevice = () => {
         }
     }
     const handleInvoiceDownload = async () => {
-        const response = (await axios.post('http://localhost:8080/items', devices));
-        handleDownload('http://localhost:8080/invoice', 'faktura.xml')
+        const response = (await axios.post('http://ec2-54-93-52-240.eu-central-1.compute.amazonaws.com:8080/items', devices));
+        handleDownload('http://ec2-54-93-52-240.eu-central-1.compute.amazonaws.com:8080/invoice', 'faktura.xml')
     }
     const handleDownload = (url, filename) => {
         axios.get(url, {
@@ -57,13 +59,14 @@ export const NewDevice = () => {
                 <input
                     type="date"
                     className="date"
+                    max={(new Date).toISOString().slice(0,10)}
                     placeholder="data..."
                     onChange={(e) => onEditField("date", e.target.value)}
                 />
                 <button
                     className="submit-device"
                     onClick={() => handleSubmitDevice()}
-                >submit
+                >dodaj
                 </button>
             </div>
             <div className="newDevice-container-list">
